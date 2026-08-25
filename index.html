@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI | Futuristic Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js for 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h1 class="loader-text">INITIALIZING...</h1>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
+    <!-- Background Canvas for 3D Particles -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                G
+            ovinda Bahadur Chhetri<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="reveal">CREATIVE DEVELOPER</h2>
+                <h1 class="reveal">Govinda <span class="gradient-text">IDENTITY</span></h1>
+                <p class="reveal">Architecting digital experiences through code and 3D aesthetics.</p>
+                <div class="hero-btns reveal">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <!-- 3D Hero Object container -->
+            <div id="hero-3d-container"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section container">
+            <div class="section-header reveal">
+                <h2 class="section-title">About Me</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <div class="image-wrapper">
+                        <img src="/IMG_1469.jpeg" alt="Profile">
+                        <div class="image-glow"></div>
+                    </div>
+                </div>
+                <div class="about-text reveal">
+                    <h3>Bridging the gap between <span>Design & Technology.</span></h3>
+                    <p>I am a multidisciplinary developer specialized in creating immersive, interactive, and high-performance web applications. My passion lies in exploring the intersection of 3D graphics, artificial intelligence, and user-centric design.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span>
+                            <p>Years Exp.</p>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="120">0</span><span class="stat-suffix">+</span>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+                            <p>Clients</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Core Expertise</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="skills-grid" id="skills-container">
+                <!-- Skill cards injected via JS for easier management if needed, 
+                     but we'll hardcode them for the 3D tilt effect to work easily -->
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Cybersecurity</h3>
+                </div>
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX</h3>
+                </div>
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Systems</h3>
+                </div>
+                <div class="skill-card reveal" data-tilt>
+                    <i class="fas fa-cube"></i>
+                    <h3>3D/WebDev</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Featured Works</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=600&q=80" alt="Project 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Cyber Nexus</h3>
+                        <p>A futuristic dashboard for monitoring network security in real-time.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Three.js</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-small"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="btn-small"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=600&q=80" alt="Project 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Quantum UI</h3>
+                        <p>Experimental interface design for space exploration software.</p>
+                        <div class="project-tech">
+                            <span>Figma</span>
+                            <span>Three.js</span>
+                            <span>Next.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-small"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="btn-small"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=600&q=80" alt="Project 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>AI Core</h3>
+                        <p>An intelligent automation engine for enterprise workflow optimization.</p>
+                        <div class="project-tech">
+                            <span>TensorFlow</span>
+                            <span>Python</span>
+                            <span>AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-small"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            <a href="#" class="btn-small"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Journey</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2022 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Senior Developer</h3>
+                        <p class="company">Tech Nova Systems</p>
+                        <p>Leading the frontend team in developing high-end 3D web experiences for global brands.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020 - 2022</div>
+                    <div class="timeline-content">
+                        <h3>Fullstack Engineer</h3>
+                        <p class="company">Cyberdyne Solutions</p>
+                        <p>Developed secure, scalable cloud infrastructure and interactive user interfaces.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2018 - 2020</div>
+                    <div class="timeline-content">
+                        <h3>Junior Web Developer</h3>
+                        <p class="company">Pixel Perfect Agency</p>
+                        <p>Mastered modern HTML, CSS, and JavaScript while delivering pixel-perfect designs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Services</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal" data-tilt>
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                    <p>Modern, high-performance, and SEO-optimized websites built with the latest tech stack.</p>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <i class="fas fa-layer-group"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centric, intuitive, and visually stunning designs that elevate your brand.</p>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <i class="fas fa-vr-cardboard"></i>
+                    <h3>3D Web Experiences</h3>
+                    <p>Immersive 3D environments and interactive elements using WebGL and Three.js.</p>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <i class="fas fa-brain"></i>
+                    <h3>AI Solutions</h3>
+                    <p>Integrating intelligent automation and machine learning into your digital products.</p>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Ensuring your applications and user data are protected against modern threats.</p>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <i class="fas fa-rocket"></i>
+                    <h3>Digital Solutions</h3>
+                    <p>End-to-end digital transformation services for growing businesses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="contact-wrapper reveal">
+                <div class="contact-info">
+                    <h3>Let's build something <span class="gradient-text">extraordinary.</span></h3>
+                    <p>Currently available for freelance and full-time opportunities.</p>
+                    
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>paulxeatri@gmail.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span>paulxeatri</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/paulxeatri</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Web Developer<span>.</span></div>
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-socials">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">&copy; 2024 Govinda Identity. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
